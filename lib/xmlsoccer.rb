@@ -2,9 +2,6 @@ require "xmlsoccer/version"
 require 'savon'
 
 module Xmlsoccer
-  require 'xmlsoccer/team'
-  require 'xmlsoccer/match'
-  require 'xmlsoccer/league'
   
     DEMO = "Demo"
     FULL = "Full"
@@ -20,7 +17,6 @@ module Xmlsoccer
     def initialize(options={})
       @api_key = options[:api_key]
       @api_type = options[:api_type]
-      @last_call = 61.minutes.ago
       if @api_type == DEMO
         @base_url = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
       elsif @api_type == FULL
@@ -30,7 +26,7 @@ module Xmlsoccer
     end
   
     def get_all_leagues
-      if @last_call > 60.minutes.ago
+      if @last_call && @last_call > 60.minutes.ago
           return WAIT
       else
         response = @client.call(:get_all_leagues, message:{"ApiKey" => @api_key})
@@ -45,7 +41,7 @@ module Xmlsoccer
     end
   
     def get_all_teams
-       if @last_call > 60.minutes.ago
+       if  @last_call && @last_call > 60.minutes.ago
           return WAIT
        else
           response = @client.call(:get_all_teams, message:{"ApiKey" => @api_key})
@@ -60,7 +56,7 @@ module Xmlsoccer
     end
   
     def get_teams_in_league(league, season_year)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = @client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => @api_key, "league" => league, "seasonDateString" => season_year})
@@ -70,7 +66,7 @@ module Xmlsoccer
     end
   
     def get_fixtures_by_date_interval(start_date, end_date)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_fixtures_by_date_interval) do
@@ -84,7 +80,7 @@ module Xmlsoccer
     end
   
     def get_fixtures_by_date_interval_and_league(league, start_date, end_date)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_fixtures_by_date_interval_and_league) do
@@ -99,7 +95,7 @@ module Xmlsoccer
     end
   
     def get_fixtures_by_date_interval_and_team(team, start_date, end_date)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_fixtures_by_date_interval_and_team) do
@@ -114,7 +110,7 @@ module Xmlsoccer
     end
   
     def get_historic_matches_by_fixture_match_id(fixture_id)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_historic_matches_by_fixture_match_id) do
@@ -128,7 +124,7 @@ module Xmlsoccer
     end
   
     def get_historic_matches_by_id(match_id)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_historic_matches_by_id) do
@@ -142,7 +138,7 @@ module Xmlsoccer
     end
   
     def get_historic_matches_by_league_and_date_interval(league, start_date, end_date)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_historic_matches_by_league_and_date_interval) do
@@ -158,7 +154,7 @@ module Xmlsoccer
     end
   
     def get_historic_matches_by_league_and_season(league, interval)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_historic_matches_by_league_and_season) do
@@ -172,7 +168,7 @@ module Xmlsoccer
     end
   
     def get_historic_matches_by_team_and_date_interval(team, start_date, end_date)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_historic_matches_by_team_and_date_interval) do
@@ -188,7 +184,7 @@ module Xmlsoccer
     end
   
     def get_historic_matches_by_teams_and_date_interval(team_1, team_2, start_date, end_date)
-      if @last_call > 5.minutes.ago
+      if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = client.call(:get_historic_matches_by_teams_and_date_interval) do

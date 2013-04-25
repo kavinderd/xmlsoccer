@@ -27,12 +27,14 @@ I would recommend everyone interested in using this gem to first read the docume
 
 Additionally, the author of the API has put a rate limit on all requests. The gem does check against last request times, but it is still worth knowing: http://xmlsoccer.wikia.com/wiki/Time_interval_limits
 
+Currently there is not support for Live Match Data.
+
 Example Use:
 
 XmlSoccer Api GetAllLeagues
 
 *You must have an API Key and know which version to use.  Currently there are two versions Xmlsoccer::DEMO and Xmlsoccer::FULL*
-xmlsoccer_client = Xmlsoccer::RequestManager.new('Api_key', 'Api_Version')
+xmlsoccer_client = Xmlsoccer::RequestManager.new(api_key: 'Api_key', api_version:'Api_Version')
 
 leagues = xmlsoccer_client.get_all_leagues
 
