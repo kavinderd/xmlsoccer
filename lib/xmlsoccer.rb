@@ -31,13 +31,8 @@ module Xmlsoccer
           return WAIT
       else
         response = @client.call(:get_all_leagues, message:{"ApiKey" => @api_key})
-      
-        leagues = []
-        response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league].each do |league|
-          leagues.push(Xmlsoccer::League.new(league[:id], league[:name], league[:country]))
-        end
         @last_call =Time.now
-        return leagues
+        return response.hash[:envelope][:body][:get_all_leagues_response][:get_all_leagues_result][:xmlsoccer_com][:league]
       end
     end
   
@@ -46,13 +41,8 @@ module Xmlsoccer
           return WAIT
        else
           response = @client.call(:get_all_teams, message:{"ApiKey" => @api_key})
-          teams = []
-          response.hash[:envelope][:body][:get_all_teams_response][:get_all_teams_result][:xmlsoccer_com][:team].each do |team|
-            puts ""
-            teams.push(Xmlsoccer::Team.new(team[:id], team[:name], team[:country], team[:stadium]))
-          end
           @last_call =Time.now
-          return teams
+          return response.hash[:envelope][:body][:get_all_teams_response][:get_all_teams_result][:xmlsoccer_com][:team]
        end
     end
   
