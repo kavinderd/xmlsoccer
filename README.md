@@ -1,6 +1,9 @@
+
 # Xmlsoccer
 
-TODO: Write a gem description
+This is a Ruby wrapper for the excellent soccer data Api that can be found at www.xmlsoccer.com
+
+The API has data for all of the major leagues for both current and historic matches.
 
 ## Installation
 
@@ -18,7 +21,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The XmlSoccer API is a SOAP service so this gem uses the 'Savon' gem to interface.
+
+I would recommend everyone interested in using this gem to first read the documentation of the API @ http://xmlsoccer.wikia.com/wiki/Main_Page
+
+Additionally, the author of the API has put a rate limit on all requests. The gem does check against last request times, but it is still worth knowing: http://xmlsoccer.wikia.com/wiki/Time_interval_limits
+
+Example Use:
+
+XmlSoccer Api GetAllLeagues
+
+*You must have an API Key and know which version to use.  Currently there are two versions Xmlsoccer::DEMO and Xmlsoccer::FULL*
+xmlsoccer_client = Xmlsoccer::RequestManager.new('Api_key', 'Api_Version')
+
+leagues = xmlsoccer_client.get_all_leagues
+
+leagues.each do |league|
+	put league[:name]
+end
+
+As time permits I will add extensive Ruby specific documentation to the Wiki for this repo.
 
 ## Contributing
 

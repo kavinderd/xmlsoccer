@@ -5,13 +5,14 @@ module Xmlsoccer
   require 'xmlsoccer/team'
   require 'xmlsoccer/match'
   require 'xmlsoccer/league'
+  
+    DEMO = "Demo"
+    FULL = "Full"
   class RequestManager
     @api_key = ""
     @api_type = "Demo"
     @base_url
   
-    DEMO = "Demo"
-    FULL = "Full"
     WAIT = 'Wait 5 minutes between calls'
   
    # client.call(:get_all_teams) do message("ApiKey"=> "EDDATSZVPAOEFAAEJOXZBUAAJAKDGUKPMJYVZPJQKLOGUHNTLG") end
