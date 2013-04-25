@@ -12,14 +12,15 @@ module Xmlsoccer
   
     WAIT = 'Wait 5 minutes between calls'
   
-   # client.call(:get_all_teams) do message("ApiKey"=> "EDDATSZVPAOEFAAEJOXZBUAAJAKDGUKPMJYVZPJQKLOGUHNTLG") end
   
     def initialize(options={})
       @api_key = options[:api_key]
       @api_type = options[:api_type]
       if @api_type == DEMO
+        puts "Demo Version"
         @base_url = "http://www.xmlsoccer.com/FootballDataDemo.asmx?WSDL"
       elsif @api_type == FULL
+        puts "Full Version"
         @base_url = "http://www.xmlsoccer.com/FootballData.asmx?WSDL"
       end
       @client = Savon.client(wsdl: @base_url)
