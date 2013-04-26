@@ -6,7 +6,6 @@ module Xmlsoccer
     DEMO = "Demo"
     FULL = "Full"
   class RequestManager
-    @api_key = ""
     @api_type = "Demo"
     @base_url
   
@@ -56,10 +55,11 @@ module Xmlsoccer
     end
   
     def get_fixtures_by_date_interval(start_date, end_date)
-      api_key = @api_key
+      
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_fixtures_by_date_interval) do
           message("ApiKey" => api_key,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
@@ -73,8 +73,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_fixtures_by_date_interval_and_league) do
-          message("ApiKey" => "#{@api_key}",
+          message("ApiKey" => api_key,
                       "league" => league,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
                       "endDateString" => end_date.strftime("%Y-%m-%d"))
@@ -88,8 +89,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_fixtures_by_date_interval_and_team) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "team" => league,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
                       "endDateString" => end_date.strftime("%Y-%m-%d"))
@@ -103,8 +105,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_historic_matches_by_fixture_match_id) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "id" => id)
         end
         response = response.hash          
@@ -117,8 +120,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_historic_matches_by_id) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "id" => id)
         end
         response = response.hash          
@@ -131,8 +135,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_historic_matches_by_league_and_date_interval) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "league" => league, 
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
                       "endDateString" => end_date.strftime("%Y-%m-%d"))
@@ -147,8 +152,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_historic_matches_by_league_and_season) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "league" => league, "seasonDateString" => interval)
         end
         response = response.hash          
@@ -161,8 +167,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_historic_matches_by_team_and_date_interval) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "teamId" => team,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
                       "endDateString" => end_date.strftime("%Y-%m-%d"))
@@ -177,8 +184,9 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        api_key = @api_key
         response = @client.call(:get_historic_matches_by_teams_and_date_interval) do
-          message("ApiKey" => @api_key,
+          message("ApiKey" => api_key,
                       "team1Id" => team_1,
                       "team2Id" => team_2,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
