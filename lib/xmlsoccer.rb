@@ -62,9 +62,8 @@ module Xmlsoccer
           message("ApiKey" => @api_key,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
                       "endDateString" => end_date.strftime("%Y-%m-%d"))
-        end
-        response = response.hash          
-        return response[:envelope][:body][:get_fixtures_by_date_interval_response][:get_fixtures_by_date_interval_result][:xmlsoccer_com][:match]
+        end          
+        return response.hash[:envelope][:body][:get_fixtures_by_date_interval_response][:get_fixtures_by_date_interval_result][:xmlsoccer_com][:match]
       end
     end
   
