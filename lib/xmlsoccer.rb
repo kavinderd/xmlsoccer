@@ -56,11 +56,12 @@ module Xmlsoccer
     end
   
     def get_fixtures_by_date_interval(start_date, end_date)
+      api_key = @api_key
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
         response = @client.call(:get_fixtures_by_date_interval) do
-          message("ApiKey" =>"#{@api_key}",
+          message("ApiKey" => api_key,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
                       "endDateString" => end_date.strftime("%Y-%m-%d"))
         end          
