@@ -48,6 +48,7 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        
         response = @client.call(:get_all_teams_by_league_and_season, message: {"ApiKey" => @api_key, "league" => league, "seasonDateString" => season_year})
         @last_call = Time.now
         return response.hash[:envelope][:body][:get_all_teams_by_league_and_season_response][:get_all_teams_by_league_and_season_result][:xmlsoccer_com][:team]
@@ -58,6 +59,7 @@ module Xmlsoccer
       if  @last_call && @last_call > 5.minutes.ago
         return WAIT
       else
+        puts @api_key
         response = @client.call(:get_fixtures_by_date_interval) do
           message("ApiKey" => @api_key,
                       "startDateString" => start_date.strftime("%Y-%m-%d"),
