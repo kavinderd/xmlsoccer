@@ -9,7 +9,10 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Gem to interface witht the xmlsoccer.com API}
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'webmock'
+  gem.add_development_dependency "rake"
+  gem.add_runtime_dependency "supermodel"
   gem.homepage      = ""
+  
   gem.add_dependency "savon"
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
