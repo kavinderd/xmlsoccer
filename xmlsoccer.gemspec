@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Gem to interface with the xmlsoccer.com API}
   gem.summary       = %q{Gem to interface witht the xmlsoccer.com API}
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'webmock'
   gem.homepage      = ""
   gem.add_dependency "savon"
   gem.files         = `git ls-files`.split($\)

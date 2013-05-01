@@ -8,6 +8,9 @@ module Xmlsoccer
   class RequestManager
     @api_type = "Demo"
     @base_url
+    
+    
+    attr_accessor :base_url, :api_type, :api_key
   
     WAIT = 'Wait 5 minutes between calls'
   

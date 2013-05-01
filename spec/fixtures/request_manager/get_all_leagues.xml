@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+	<Body>
+		<GetAllLeaguesResponse>
+			<GetAllLeaguesResult>
+				<XMLSOCCER.COM>
+				    <League>
+				        <Id>1</Id>
+				        <Name>English Premier League</Name>
+				        <Country>England</Country>
+				        <Historical_Data>Yes</Historical_Data>
+				        <Fixtures>Yes</Fixtures>
+				        <Livescore>Yes</Livescore>
+				        <NumberOfMatches>2557</NumberOfMatches>
+				        <LatestMatch>2013-03-02T16:00:00+01:00</LatestMatch>
+				    </League>
+				    <League>
+				        <Id>2</Id>
+				        <Name>English League Championship</Name>
+				        <Country>England</Country>
+				        <Historical_Data>Yes</Historical_Data>
+				        <Fixtures>Yes</Fixtures>
+				        <Livescore>Yes</Livescore>
+				        <NumberOfMatches>3267</NumberOfMatches>
+				        <LatestMatch>2013-03-02T16:00:00+01:00</LatestMatch>
+				    </League>
+					<AccountInformation>Data requested at 02-03-2013 21:02:09 from XX.XX.XX.XX, Username: Espectro. Your current supscription runs out on XX-XX-XXXX 11:01:25.</AccountInformation>
+				</XMLSOCCER.COM>
+			</GetAllLeaguesResult>
+		</GetAllLeaguesResponse>
+	</Body>
+</Envelope>

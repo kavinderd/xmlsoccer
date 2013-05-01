@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope>
+	<Body>
+		<GetAllTeamsResponse>
+			<GetAllTeamsResult>
+				<XMLSOCCER.COM>
+				  <Team>
+				    <Team_Id>4</Team_Id>
+				    <Name>Fulham</Name>
+				    <Country>England</Country>
+				    <Stadium>Craven Cottage</Stadium>
+				    <HomePageURL>http://www.fulhamfc.com/</HomePageURL>
+				    <WIKILink>http://en.wikipedia.org/wiki/Fulham_F.C.</WIKILink>
+				  </Team>
+				  <Team>
+				    <Team_Id>5</Team_Id>
+				    <Name>Aston Villa</Name>
+				    <Country>England</Country>
+				    <Stadium>Villa Park</Stadium>
+				    <HomePageURL>http://www.avfc.co.uk/9laI7Jw</HomePageURL>
+				    <WIKILink>http://en.wikipedia.org/wiki/Aston_Villa_F.C.</WIKILink>
+				  </Team>
+				</XMLSOCCER.COM>
+			</GetAllTeamsResult>
+		</GetAllTeamsResponse>
+	</Body>
+</Envelope>
