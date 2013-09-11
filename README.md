@@ -32,8 +32,8 @@ Currently there is not support for Live Match Data.
 Example Use:
 
 XmlSoccer Api GetAllLeagues
+(You must have an API Key and know which type to use.  Currently there are two types Xmlsoccer::DEMO and Xmlsoccer::FULL)
 
-	*You must have an API Key and know which type to use.  Currently there are two types Xmlsoccer::DEMO and Xmlsoccer::FULL*
 	xmlsoccer_client = Xmlsoccer::RequestManager.new(api_key: 'Api_key', api_type:'Api_Type')
 
 	leagues = xmlsoccer_client.get_all_leagues
