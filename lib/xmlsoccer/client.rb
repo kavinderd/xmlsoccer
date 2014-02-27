@@ -9,7 +9,7 @@ module Xmlsoccer
     attr_accessor :base_url, :api_type, :api_key
 
     def initialize(options={})
-      raise "API Type not valid" if Xmlsoccer::Config.valid_type?(options[:api_type])
+      raise "API Type not valid" unless Xmlsoccer::Config.valid_type?(options[:api_type])
       @api_key = options[:api_key]
       @api_type = options[:api_type]
       @base_url = Xmlsoccer::Config.const_get(@api_type.upcase + "_URL")
