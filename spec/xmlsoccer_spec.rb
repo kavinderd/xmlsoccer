@@ -104,28 +104,6 @@ describe Xmlsoccer do
         
       end
      
-      
-      it 'gets all teams in a league'
-      
-      it 'gets fixtures by a date interval'
-      
-      it 'gets fixtures by date interval and league'
-      
-      it 'gets fixtures by date interval and team'
-      
-      it 'gets historic matches by fixture id'
-      
-      it 'gets historic match by id'
-      
-      it 'gets historic matches by league and date interval'
-      
-      it 'gets historic matches by league and season'
-      
-      it 'gets historic matches by team and date interval'
-      
-      it 'gets historic matches between teams date interval'
-      
-    
   end
 end
 

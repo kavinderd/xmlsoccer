@@ -1,7 +1,6 @@
 require "xmlsoccer/version"
-require "xmlsoccer/leagues"
-require "xmlsoccer/matches"
-require "xmlsoccer/teams"
+require "xmlsoccer/manifest"
+require "xmlsoccer/config"
 require "xmlsoccer/client"
 require 'savon'
 
