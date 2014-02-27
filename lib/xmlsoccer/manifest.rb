@@ -2,8 +2,8 @@ module Xmlsoccer
 
   module Manifest
   	
-  	
-  	def get_availble_methods
+
+  	def get_available_methods
   	  self.client.operations.each do |method|
   	  	define_method(method) do |options|
   	  	  response = self.client.call(method, message: options.merge("ApiKey" => self.api_key))
