@@ -34,7 +34,7 @@ Additionally, the author of the API has put a rate limit on all requests. The ge
 
 The available API calls are defined when you instantiate an Xmlsoccer::Client object.  Unlike the previous version of this gem, no specific call is hardcoded, rather the methods defined in the [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) documentation are dynamically defined. This change makes the gem much more lightweight but relies on the user to be conscious of the arguments passed to any method.
 
-All methods and parameters that are listed on [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) need to be translated to underscore style when using this gem. For example, `GetFixturesByDateInterval` should be  `get_fixtures_by_date_interval` and `'StartDateString'` should be `start_date_string`
+All methods and parameters that are listed on [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) need to be translated to snake case when using this gem. For example, `GetFixturesByDateInterval` should be  `get_fixtures_by_date_interval` and `'StartDateString'` should be `start_date_string`
 
 Example Use:
 
