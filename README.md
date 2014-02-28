@@ -34,7 +34,8 @@ Additionally, the author of the API has put a rate limit on all requests. The ge
 
 The available API calls are defined when you instantiate an Xmlsoccer::Client object.  Unlike the previous version of this gem, no specific call is hardcoded, rather the methods defined in the [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) documentation are dynamically defined. This change makes the gem much more lightweight but relies on the user to be conscious of the arguments passed to any method.
 
-All methods and parameters that are listed on [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) need to be translated to snake case when using this gem. For example, `GetFixturesByDateInterval` should be  `get_fixtures_by_date_interval` and `'StartDateString'` should be `start_date_string`
+All methods and parameters that are listed on [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) need to be translated to snake case when using this gem. For example, `GetFixturesByDateInterval` should be  `get_fixtures_by_date_interval` and `'StartDateString'` should be `start_date_string`. Note that there are some limitations with this, "fixtureMatch_Id" is not translated properly from `fixture_match_id`, therefore in this case you can simply pass in as a parameter ("fixtureMatch_Id" => 123).
+ 
 
 Example Use:
 
@@ -44,9 +45,9 @@ XmlSoccer API GetFixturesByDateInterval
 
 	xmlsoccer_client = Xmlsoccer::Client.new(api_key: 'Api_key', api_type:'Api_Type')
 
-	matches = xmlsoccer_client.get_fixtures_by_date_interval(start_date_string: '2014-01-01', end_date_string: '2014-02-01')
+	response = xmlsoccer_client.get_fixtures_by_date_interval(start_date_string: '2014-01-01', end_date_string: '2014-02-01')
 	
-	matches.each do |match|
+	response.each do |match|
 		put match[:date]
 	end
 
@@ -58,7 +59,7 @@ XmlSoccer Api GetAllLeagues
 
 	response = xmlsoccer_client.get_all_leagues
 	
-	response[:league].each do |league|
+	response.each do |league|
 		put league[:name]
 	end
 
