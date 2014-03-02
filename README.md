@@ -37,7 +37,7 @@ The available API calls are defined when you instantiate an Xmlsoccer::Client ob
 All methods and parameters that are listed on [xmlsoccer](http://www.xmlsoccer.com/FootballData.asmx?WSDL) need to be translated to snake case when using this gem. For example, `GetFixturesByDateInterval` should be  `get_fixtures_by_date_interval` and `'StartDateString'` should be `start_date_string`. Note that there are some limitations with this, "fixtureMatch_Id" is not translated properly from `fixture_match_id`, therefore in this case you can simply pass in as a parameter ("fixtureMatch_Id" => 123).
  
 
-Example Use:
+###Example Use
 
 (You must have an API Key and know which type to use.  Currently there are two types Xmlsoccer::DEMO and Xmlsoccer::FULL)
 
@@ -63,6 +63,15 @@ XmlSoccer Api GetAllLeagues
 		put league[:name]
 	end
 
+###Exceptions
+
+Xmlsoccer has a rate limit on nearly all of the Api methods ranging anywhere from 5 minutes to an hour.  Rather than this gem manage when calls are made or simply return the String response returned by the api, the gem raises an Exception. So be sure to form your methods to catch exceptions,
+
+	begin
+	  client.get_all_leagues
+	rescue Exception => e
+	 #handle rate limit
+	end 
 
 
 #Version 0.0.1
