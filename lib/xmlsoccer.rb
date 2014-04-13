@@ -5,5 +5,6 @@ require "xmlsoccer/client"
 require 'savon'
 
 module Xmlsoccer
-  
+
+
 end

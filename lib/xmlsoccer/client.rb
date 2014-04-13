@@ -6,14 +6,15 @@ module Xmlsoccer
     @client
     
     include Manifest
+    include Config 
     
     attr_accessor :base_url, :api_type, :api_key, :client
 
     def initialize(options={})
-      raise "API Type not valid" unless Xmlsoccer::Config.valid_type?(options[:api_type])
+      raise "API Type not valid" unless valid_type?(options[:api_type])
       @api_key = options[:api_key]
       @api_type = options[:api_type]
-      @base_url = Xmlsoccer::Config.const_get(@api_type.upcase + "_URL")
+      @base_url = api_url(@api_type)
       @client = Savon.client(wsdl: @base_url)
       get_available_methods
     end
