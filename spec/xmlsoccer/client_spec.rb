@@ -12,7 +12,6 @@ module Xmlsoccer
     it "should return an error with an invalid type" do
       expect{Xmlsoccer::Client.new(api_key: "12345", api_type: 'Invalid')}.to raise_exception
     end
-
-
   end
+
 end

@@ -1,10 +1,7 @@
 module Xmlsoccer
 
   class Client
-  	@api_type = Xmlsoccer::Config::DEMO
-    @base_url
-    @client
-    
+
     include Manifest
     include Config 
     
