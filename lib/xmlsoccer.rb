@@ -6,7 +6,5 @@ require 'savon'
 
 module Xmlsoccer
 
-  include Config 
-
 
 end
